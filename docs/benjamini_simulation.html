@@ -290,7 +290,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/jdblischak/workflowr">
+  <a href="https://github.com/LSun/BHq">
     <span class="fa fa-github"></span>
      
   </a>
@@ -347,7 +347,7 @@ div.section {
 </li>
 <li>
 <details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/LSun/BHq/tree/29a4df9f9824df0e4fdaf68d803d22337dd481e8" target="_blank">29a4df9</a> </summary></p>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/LSun/BHq/tree/12e8390685ab34df72543e783bcfc423784f90ee" target="_blank">12e8390</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
@@ -358,9 +358,6 @@ Ignored files:
     Ignored:    analysis/benjamini_simulation_cache/
     Ignored:    docs/.DS_Store
     Ignored:    docs/figure/.DS_Store
-
-Untracked files:
-    Untracked:  code/BHq_sim.R
 
 </code></pre>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
@@ -391,6 +388,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/LSun/BHq/blob/12e8390685ab34df72543e783bcfc423784f90ee/analysis/benjamini_simulation.rmd" target="_blank">12e8390</a>
+</td>
+<td style="text-align:left;">
+Lei Sun
+</td>
+<td style="text-align:left;">
+2018-05-12
+</td>
+<td style="text-align:left;">
+wflow_publish(all = TRUE)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/LSun/BHq/ec8e8c0ee354096ca5370f8358db7f722bead86f/docs/benjamini_simulation.html" target="_blank">ec8e8c0</a>
+</td>
+<td style="text-align:left;">
+Lei Sun
+</td>
+<td style="text-align:left;">
+2018-05-12
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 rmd
@@ -686,6 +717,17 @@ Date
 <tbody>
 <tr>
 <td style="text-align:left;">
+<a href="https://github.com/LSun/BHq/blob/ec8e8c0ee354096ca5370f8358db7f722bead86f/docs/figure/benjamini_simulation.rmd/unnamed-chunk-11-1.png" target="_blank">ec8e8c0</a>
+</td>
+<td style="text-align:left;">
+Lei Sun
+</td>
+<td style="text-align:left;">
+2018-05-12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 <a href="https://github.com/LSun/BHq/blob/e9e280fc1167c3ee4573137be3606a61b900f2e8/docs/figure/benjamini_simulation.rmd/unnamed-chunk-11-1.png" target="_blank">e9e280f</a>
 </td>
 <td style="text-align:left;">
@@ -734,7 +776,7 @@ attr(,&quot;conf.level&quot;)
 <li><p>“Inflated Noise” is a particularly hostile group for <span class="math inline">\(\text{BH}_q\)</span>, and indeed it’s hostile for all multiple testing procedures which ignore the correlation.</p></li>
 <li>That said, <span class="math inline">\(\text{BH}_q\)</span> are still, maybe surprisingly so to many, quite robust to correlation in two senses.
 <ul>
-<li>First, with a given <span class="math inline">\(\Sigma\)</span> containing substantial off-diagonal correlations, <span class="math inline">\(\text{BH}_q\)</span> manages to control FDR on average, over all inflated, deflated, and in-between put together.</li>
+<li>First, with a given <span class="math inline">\(\Sigma\)</span> containing substantial off-diagonal correlations, <span class="math inline">\(\text{BH}_q\)</span> manages to control FDR in the frequentist sense, that is, on average, over all inflated, deflated, and else put together.</li>
 <li>Second, even for the particularly hostile “Inflated Noise” group, <span class="math inline">\(\text{BH}_q\)</span> gives an average FDP <span class="math inline">\(=\)</span> 0.199 at a nominal FDR <span class="math inline">\(= 0.1\)</span>, which is quite impressive, much better than other methods like <code>qvalue</code>.</li>
 </ul></li>
 <li><p>The most relevant issue for <span class="math inline">\(\text{BH}_q\)</span> on correlated data is not controlling the mean of FDP, but rather the variability of FDP for different data sets. Like many methods ignoring correlation, <span class="math inline">\(\text{BH}_q\)</span> is too conservative when the noise is deflated, and too anti-conservative when the noise is inflated. However, in practice we would prefer a robust procedure that gives a rejection set with an FDP close to the desired nominal FDR, conditioned on every given data set. This is what we want to achieve with <code>CASH</code>.</p></li>
