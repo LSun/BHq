@@ -347,18 +347,20 @@ div.section {
 </li>
 <li>
 <details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/LSun/BHq/tree/f7b4fcbee7bf2a84f71d5800d16365184ccf64b8" target="_blank">f7b4fcb</a> </summary></p>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/LSun/BHq/tree/29a4df9f9824df0e4fdaf68d803d22337dd481e8" target="_blank">29a4df9</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
     Ignored:    .DS_Store
+    Ignored:    .Rapp.history
+    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
     Ignored:    analysis/benjamini_simulation_cache/
     Ignored:    docs/.DS_Store
     Ignored:    docs/figure/.DS_Store
 
 Untracked files:
-    Untracked:  BHq_sim.R
+    Untracked:  code/BHq_sim.R
 
 </code></pre>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
@@ -389,6 +391,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/LSun/BHq/blob/29a4df9f9824df0e4fdaf68d803d22337dd481e8/analysis/benjamini_simulation.rmd" target="_blank">29a4df9</a>
+</td>
+<td style="text-align:left;">
+Lei Sun
+</td>
+<td style="text-align:left;">
+2018-05-12
+</td>
+<td style="text-align:left;">
+wflow_publish(“analysis/benjamini_simulation.rmd”)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/LSun/BHq/41841c210bcad687ca68397656a218872797a73a/docs/benjamini_simulation.html" target="_blank">41841c2</a>
+</td>
+<td style="text-align:left;">
+Lei Sun
+</td>
+<td style="text-align:left;">
+2018-05-12
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 rmd
@@ -502,6 +538,37 @@ Sigma[1 : 5, 1 : 5]</code></pre>
 [4,]  0.4948134  0.13479952 -0.49849796  1.0000000 -0.31566202
 [5,] -0.1216383  0.00834317  0.06838413 -0.3156620  1.00000000</code></pre>
 <p><img src="figure/benjamini_simulation.rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<details>
+<summary><em>Expand here to see past versions of unnamed-chunk-3-1.png:</em></summary>
+<table style = "border-collapse:separate; border-spacing:5px;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Version
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:left;">
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<a href="https://github.com/LSun/BHq/blob/41841c210bcad687ca68397656a218872797a73a/docs/figure/benjamini_simulation.rmd/unnamed-chunk-3-1.png" target="_blank">41841c2</a>
+</td>
+<td style="text-align:left;">
+Lei Sun
+</td>
+<td style="text-align:left;">
+2018-05-12
+</td>
+</tr>
+</tbody>
+</table>
+</details>
 <ul>
 <li>Fix <span class="math inline">\(\Sigma\)</span> and simulate <span class="math inline">\(Z \sim N\left(0, \Sigma\right)\)</span> <span class="math inline">\(m = 10^3\)</span> times.</li>
 </ul>
@@ -534,19 +601,47 @@ table(group)</code></pre>
 Deflated Noise     In-between Inflated Noise 
            498            166            336 </code></pre>
 <ul>
-<li>Examples: the blue line is the density curve of <span class="math inline">\(N(0, 1)\)</span>. <img src="figure/benjamini_simulation.rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></li>
+<li><p>Examples: the blue line is the density curve of <span class="math inline">\(N(0, 1)\)</span>. <img src="figure/benjamini_simulation.rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<details>
+<summary><em>Expand here to see past versions of unnamed-chunk-6-1.png:</em></summary>
+<table style="border-collapse:separate; border-spacing:5px;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Version
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:left;">
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<a href="https://github.com/LSun/BHq/blob/41841c210bcad687ca68397656a218872797a73a/docs/figure/benjamini_simulation.rmd/unnamed-chunk-6-1.png" target="_blank">41841c2</a>
+</td>
+<td style="text-align:left;">
+Lei Sun
+</td>
+<td style="text-align:left;">
+2018-05-12
+</td>
+</tr>
+</tbody>
+</table>
+</details></li>
 </ul>
 </div>
 <div id="add-signals-and-obtain-p-values-for-every-simulation-trial." class="section level2">
 <h2>Add signals and obtain <span class="math inline">\(p\)</span>-values for every simulation trial.</h2>
 <ul>
-<li>In each of our simulation trial, the signals are simulated as <span class="math inline">\(\theta_j \overset{iid}{\sim} 0.9\delta_0 + 0.1N(0, 4^2)\)</span>, <span class="math inline">\(j = 1, \ldots, n\)</span>.</li>
+<li>In each simulation trial, we add the signals simulated as <span class="math inline">\(\theta_j \overset{iid}{\sim} 0.9\delta_0 + 0.1N(0, 4^2)\)</span>, <span class="math inline">\(X_j = \theta_j + Z_j\)</span>, <span class="math inline">\(j = 1, \ldots, n\)</span></li>
 </ul>
-<pre class="r"><code>theta &lt;- replicate(m, sample(c(rep(0, n * 0.9), rnorm(n * 0.1, 0, 4))))</code></pre>
-<ul>
-<li>Observations <span class="math inline">\(X_j = \theta_j + Z_j\)</span>.</li>
-</ul>
-<pre class="r"><code>X &lt;- theta + Z</code></pre>
+<pre class="r"><code>theta &lt;- c(rep(0, 0.9 * n), rnorm(0.1 * n, 0, 4))
+X &lt;- theta + Z</code></pre>
 <ul>
 <li><span class="math inline">\(z\)</span>-scores <span class="math inline">\(= X_j / 1 = X_j\)</span>, two-sided <span class="math inline">\(p\)</span>-values <span class="math inline">\(= 2\Phi\left(-\left|X_j\right|\right)\)</span>.</li>
 </ul>
@@ -563,7 +658,7 @@ BH.rej &lt;- apply(p.BH, 2, function(x){x &lt;= q})</code></pre>
 <pre class="r"><code>FDP.fun &lt;- function (rej.id, theta) {
   sum(theta[rej.id] == 0) / max(1, length(theta[rej.id]))
 }
-FDP &lt;- sapply(seq(m), function(i){FDP.fun(BH.rej[, i], theta[, i])})</code></pre>
+FDP &lt;- apply(BH.rej, 2, FDP.fun, theta)</code></pre>
 </div>
 <div id="average-fdp-for-each-group-and-overall" class="section level2">
 <h2>Average FDP for each group and overall</h2>
@@ -571,34 +666,65 @@ FDP &lt;- sapply(seq(m), function(i){FDP.fun(BH.rej[, i], theta[, i])})</code></
 boxplot(FDP ~ group, ylab = &quot;FDP&quot;)
 abline(h = q, lty = 2, col = &quot;red&quot;)
 points(1 : 3, tapply(FDP, group, mean), col = &quot;blue&quot;, pch = 13)</code></pre>
-<p><img src="figure/benjamini_simulation.rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/benjamini_simulation.rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<details>
+<summary><em>Expand here to see past versions of unnamed-chunk-11-1.png:</em></summary>
+<table style = "border-collapse:separate; border-spacing:5px;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Version
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:left;">
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<a href="https://github.com/LSun/BHq/blob/e9e280fc1167c3ee4573137be3606a61b900f2e8/docs/figure/benjamini_simulation.rmd/unnamed-chunk-11-1.png" target="_blank">e9e280f</a>
+</td>
+<td style="text-align:left;">
+Lei Sun
+</td>
+<td style="text-align:left;">
+2018-05-11
+</td>
+</tr>
+</tbody>
+</table>
+</details>
 <pre class="r"><code>## Mean of FDP for each group
 tapply(FDP, group, mean)</code></pre>
 <pre><code>Deflated Noise     In-between Inflated Noise 
-   0.003543453    0.017217872    0.199939979 </code></pre>
+   0.003531483    0.016935738    0.199496475 </code></pre>
 <pre class="r"><code>## sd of FDP for each group
 tapply(FDP, group, sd)</code></pre>
 <pre><code>Deflated Noise     In-between Inflated Noise 
-   0.003874200    0.007387998    0.204237518 </code></pre>
+   0.003885837    0.007455879    0.204954646 </code></pre>
 <pre class="r"><code>## 95% CI of the mean of FDP for each group
 tapply(FDP, group, function(x){t.test(x)$conf.int})</code></pre>
 <pre><code>$`Deflated Noise`
-[1] 0.003202359 0.003884548
+[1] 0.003189365 0.003873602
 attr(,&quot;conf.level&quot;)
 [1] 0.95
 
 $`In-between`
-[1] 0.01608569 0.01835006
+[1] 0.01579315 0.01807833
 attr(,&quot;conf.level&quot;)
 [1] 0.95
 
 $`Inflated Noise`
-[1] 0.1780227 0.2218572
+[1] 0.1775023 0.2214907
 attr(,&quot;conf.level&quot;)
 [1] 0.95</code></pre>
 <pre class="r"><code>## 95% CI of the mean of FDP overall
 t.test(FDP)$conf.int</code></pre>
-<pre><code>[1] 0.06252667 0.08107861
+<pre><code>[1] 0.06231110 0.08089056
 attr(,&quot;conf.level&quot;)
 [1] 0.95</code></pre>
 </div>
@@ -609,7 +735,7 @@ attr(,&quot;conf.level&quot;)
 <li>That said, <span class="math inline">\(\text{BH}_q\)</span> are still, maybe surprisingly so to many, quite robust to correlation in two senses.
 <ul>
 <li>First, with a given <span class="math inline">\(\Sigma\)</span> containing substantial off-diagonal correlations, <span class="math inline">\(\text{BH}_q\)</span> manages to control FDR on average, over all inflated, deflated, and in-between put together.</li>
-<li>Second, even for the particularly hostile “Inflated Noise” group, <span class="math inline">\(\text{BH}_q\)</span> gives an average FDP <span class="math inline">\(=\)</span> 0.2 at a nominal FDR <span class="math inline">\(= 0.1\)</span>, which is quite impressive, much better than other methods like <code>qvalue</code>.</li>
+<li>Second, even for the particularly hostile “Inflated Noise” group, <span class="math inline">\(\text{BH}_q\)</span> gives an average FDP <span class="math inline">\(=\)</span> 0.199 at a nominal FDR <span class="math inline">\(= 0.1\)</span>, which is quite impressive, much better than other methods like <code>qvalue</code>.</li>
 </ul></li>
 <li><p>The most relevant issue for <span class="math inline">\(\text{BH}_q\)</span> on correlated data is not controlling the mean of FDP, but rather the variability of FDP for different data sets. Like many methods ignoring correlation, <span class="math inline">\(\text{BH}_q\)</span> is too conservative when the noise is deflated, and too anti-conservative when the noise is inflated. However, in practice we would prefer a robust procedure that gives a rejection set with an FDP close to the desired nominal FDR, conditioned on every given data set. This is what we want to achieve with <code>CASH</code>.</p></li>
 <li><p>The surprising relative robustness of <span class="math inline">\(\text{BH}_q\)</span> might be theoretically explained by the Gaussian derivatives theory on correlation we used in <code>CASH</code>, which I’d like to explore further.</p></li>
@@ -641,12 +767,12 @@ loaded via a namespace (and not attached):
  [7] colorspace_1.3-2  rlang_0.1.6       stringr_1.3.0    
 [10] plyr_1.8.4        tools_3.4.3       grid_3.4.3       
 [13] gtable_0.2.0      R.oo_1.21.0       git2r_0.21.0     
-[16] htmltools_0.3.6   lazyeval_0.2.1    yaml_2.1.18      
+[16] htmltools_0.3.6   yaml_2.1.18       lazyeval_0.2.1   
 [19] rprojroot_1.3-2   digest_0.6.15     tibble_1.4.2     
-[22] R.utils_2.6.0     codetools_0.2-15  evaluate_0.10.1  
-[25] rmarkdown_1.9     labeling_0.3      stringi_1.1.6    
-[28] pillar_1.1.0      compiler_3.4.3    scales_0.5.0     
-[31] backports_1.1.2   R.methodsS3_1.7.1</code></pre>
+[22] R.utils_2.6.0     evaluate_0.10.1   rmarkdown_1.9    
+[25] labeling_0.3      stringi_1.1.6     pillar_1.1.0     
+[28] compiler_3.4.3    scales_0.5.0      backports_1.1.2  
+[31] R.methodsS3_1.7.1</code></pre>
 </div>
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
