@@ -125,7 +125,7 @@ t.test(FDP)$conf.int
 - "Inflated Noise" is a particularly hostile group for $\text{BH}_q$, and indeed it's hostile for all multiple testing procedures which ignore the correlation.
 
 - That said, $\text{BH}_q$ are still, maybe surprisingly so to many, quite robust to correlation in two senses.
-    - First, with a given $\Sigma$ containing substantial off-diagonal correlations, $\text{BH}_q$ manages to control FDR on average, over all inflated, deflated, and in-between put together.
+    - First, with a given $\Sigma$ containing substantial off-diagonal correlations, $\text{BH}_q$ manages to control FDR in the frequentist sense, that is, on average, over all inflated, deflated, and else put together.
     - Second, even for the particularly hostile "Inflated Noise" group, $\text{BH}_q$ gives an average FDP $=$ `r signif(mean(FDP[group == "Inflated Noise"]), 3)` at a nominal FDR $= 0.1$, which is quite impressive, much better than other methods like `qvalue`.
 
 - The most relevant issue for $\text{BH}_q$ on correlated data is not controlling the mean of FDP, but rather the variability of FDP for different data sets. Like many methods ignoring correlation, $\text{BH}_q$ is too conservative when the noise is deflated, and too anti-conservative when the noise is inflated. However, in practice we would prefer a robust procedure that gives a rejection set with an FDP close to the desired nominal FDR, conditioned on every given data set. This is what we want to achieve with `CASH`.

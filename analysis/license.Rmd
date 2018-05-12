@@ -5,7 +5,8 @@ output:
     toc: false
 ---
 
-The code is available under the [MIT license]. The text and data are availabe under the [CC-BY license]. See the file [LICENSE] for full details.
+The code is available under the [MIT license].
+The text and data are availabe under the [CC-BY license]. See the file [LICENSE] for full details.
 
 [MIT license]: https://opensource.org/licenses/MIT
 [CC-BY license]: https://creativecommons.org/licenses/by/4.0/legalcode

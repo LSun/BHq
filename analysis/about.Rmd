@@ -5,4 +5,14 @@ output:
     toc: false
 ---
 
-Explorations on $\text{BH}_q$.
+In previous studies, we've found some surprising and under-appreciated properties of the good ol' $\text{BH}_q$. Namely, despite withhout theoretical justification, $\text{BH}_q$ are quite robust to correlation in two senses.
+
+- First, with a given correlation matrix containing substantial off-diagonal correlations, $\text{BH}_q$ manages to control FDR in the frequentist sense, that is, on average, over all inflated, deflated, and else put together.
+
+- Second, even for the particularly hostile "Inflated Noise" group, $\text{BH}_q$ gives an average FDP not far off from the nominal FDR, which is quite impressive, much better than other methods like `qvalue`.
+
+The surprising relative robustness of $\text{BH}_q$ might be theoretically explained by the Gaussian derivatives theory on correlation we used in `CASH`, which we'd like to explore further.
+
+In addition, the most relevant issue for $\text{BH}_q$ on correlated data is not controlling the mean of FDP, but rather the variability of FDP for different data sets. Like many methods ignoring correlation, $\text{BH}_q$ is too conservative when the noise is deflated, and too anti-conservative when the noise is inflated.
+
+In practice we would prefer a robust procedure that gives a rejection set with an FDP close to the desired nominal FDR, conditioned on every given data set. This is what we want to achieve with `CASH`.
