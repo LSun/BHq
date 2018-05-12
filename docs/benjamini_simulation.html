@@ -318,7 +318,7 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-05-11</p>
+<p><strong>Last updated:</strong> 2018-05-12</p>
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
@@ -347,7 +347,7 @@ div.section {
 </li>
 <li>
 <details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/LSun/BHq/tree/d02e215c833764bfa9bdeaade4a573ab7e7b9071" target="_blank">d02e215</a> </summary></p>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/LSun/BHq/tree/f7b4fcbee7bf2a84f71d5800d16365184ccf64b8" target="_blank">f7b4fcb</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
@@ -389,6 +389,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/LSun/BHq/blob/f7b4fcbee7bf2a84f71d5800d16365184ccf64b8/analysis/benjamini_simulation.rmd" target="_blank">f7b4fcb</a>
+</td>
+<td style="text-align:left;">
+Lei Sun
+</td>
+<td style="text-align:left;">
+2018-05-12
+</td>
+<td style="text-align:left;">
+wflow_publish(“analysis/benjamini_simulation.rmd”)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/LSun/BHq/f1eabab1924cfc537b587a4863f5b30d718f5173/docs/benjamini_simulation.html" target="_blank">f1eabab</a>
+</td>
+<td style="text-align:left;">
+Lei Sun
+</td>
+<td style="text-align:left;">
+2018-05-12
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 rmd
@@ -467,6 +501,7 @@ Sigma[1 : 5, 1 : 5]</code></pre>
 [3,] -0.1731263 -0.44616416  1.00000000 -0.4984980  0.06838413
 [4,]  0.4948134  0.13479952 -0.49849796  1.0000000 -0.31566202
 [5,] -0.1216383  0.00834317  0.06838413 -0.3156620  1.00000000</code></pre>
+<p><img src="figure/benjamini_simulation.rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Fix <span class="math inline">\(\Sigma\)</span> and simulate <span class="math inline">\(Z \sim N\left(0, \Sigma\right)\)</span> <span class="math inline">\(m = 10^3\)</span> times.</li>
 </ul>
@@ -499,38 +534,7 @@ table(group)</code></pre>
 Deflated Noise     In-between Inflated Noise 
            498            166            336 </code></pre>
 <ul>
-<li><p>Examples: the blue line is the density curve of <span class="math inline">\(N(0, 1)\)</span>. <img src="figure/benjamini_simulation.rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
-<details>
-<summary><em>Expand here to see past versions of unnamed-chunk-5-1.png:</em></summary>
-<table style="border-collapse:separate; border-spacing:5px;">
-<thead>
-<tr>
-<th style="text-align:left;">
-Version
-</th>
-<th style="text-align:left;">
-Author
-</th>
-<th style="text-align:left;">
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-<a href="https://github.com/LSun/BHq/blob/e9e280fc1167c3ee4573137be3606a61b900f2e8/docs/figure/benjamini_simulation.rmd/unnamed-chunk-5-1.png" target="_blank">e9e280f</a>
-</td>
-<td style="text-align:left;">
-Lei Sun
-</td>
-<td style="text-align:left;">
-2018-05-11
-</td>
-</tr>
-</tbody>
-</table>
-</details></li>
+<li>Examples: the blue line is the density curve of <span class="math inline">\(N(0, 1)\)</span>. <img src="figure/benjamini_simulation.rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></li>
 </ul>
 </div>
 <div id="add-signals-and-obtain-p-values-for-every-simulation-trial." class="section level2">
@@ -567,38 +571,7 @@ FDP &lt;- sapply(seq(m), function(i){FDP.fun(BH.rej[, i], theta[, i])})</code></
 boxplot(FDP ~ group, ylab = &quot;FDP&quot;)
 abline(h = q, lty = 2, col = &quot;red&quot;)
 points(1 : 3, tapply(FDP, group, mean), col = &quot;blue&quot;, pch = 13)</code></pre>
-<p><img src="figure/benjamini_simulation.rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
-<details>
-<summary><em>Expand here to see past versions of unnamed-chunk-11-1.png:</em></summary>
-<table style = "border-collapse:separate; border-spacing:5px;">
-<thead>
-<tr>
-<th style="text-align:left;">
-Version
-</th>
-<th style="text-align:left;">
-Author
-</th>
-<th style="text-align:left;">
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-<a href="https://github.com/LSun/BHq/blob/e9e280fc1167c3ee4573137be3606a61b900f2e8/docs/figure/benjamini_simulation.rmd/unnamed-chunk-11-1.png" target="_blank">e9e280f</a>
-</td>
-<td style="text-align:left;">
-Lei Sun
-</td>
-<td style="text-align:left;">
-2018-05-11
-</td>
-</tr>
-</tbody>
-</table>
-</details>
+<p><img src="figure/benjamini_simulation.rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>## Mean of FDP for each group
 tapply(FDP, group, mean)</code></pre>
 <pre><code>Deflated Noise     In-between Inflated Noise 
@@ -668,12 +641,12 @@ loaded via a namespace (and not attached):
  [7] colorspace_1.3-2  rlang_0.1.6       stringr_1.3.0    
 [10] plyr_1.8.4        tools_3.4.3       grid_3.4.3       
 [13] gtable_0.2.0      R.oo_1.21.0       git2r_0.21.0     
-[16] htmltools_0.3.6   yaml_2.1.18       lazyeval_0.2.1   
+[16] htmltools_0.3.6   lazyeval_0.2.1    yaml_2.1.18      
 [19] rprojroot_1.3-2   digest_0.6.15     tibble_1.4.2     
-[22] R.utils_2.6.0     evaluate_0.10.1   rmarkdown_1.9    
-[25] labeling_0.3      stringi_1.1.6     pillar_1.1.0     
-[28] compiler_3.4.3    scales_0.5.0      backports_1.1.2  
-[31] R.methodsS3_1.7.1</code></pre>
+[22] R.utils_2.6.0     codetools_0.2-15  evaluate_0.10.1  
+[25] rmarkdown_1.9     labeling_0.3      stringi_1.1.6    
+[28] pillar_1.1.0      compiler_3.4.3    scales_0.5.0     
+[31] backports_1.1.2   R.methodsS3_1.7.1</code></pre>
 </div>
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
