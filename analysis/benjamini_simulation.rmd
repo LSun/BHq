@@ -24,6 +24,10 @@ Sigma <- cov2cor(B %*% t(B) + diag(n))
 Sigma[1 : 5, 1 : 5]
 ```
 
+```{r, echo = FALSE}
+hist(Sigma[lower.tri(Sigma)], breaks = 100, xlab = expression(rho[ij]), main = "Histogram of Pairwise Correlations\nIn this Simulation")
+```
+
 - Fix $\Sigma$ and simulate $Z \sim N\left(0, \Sigma\right)$ $m = 10^3$ times.
 ```{r, cache = TRUE}
 m <- 1000
