@@ -75,13 +75,9 @@ ggplot(data = cor.exp, aes(Z)) +
 
 ## Add signals and obtain $p$-values for every simulation trial.
 
-- In each of our simulation trial, the signals are simulated as $\theta_j \overset{iid}{\sim} 0.9\delta_0 + 0.1N(0, 4^2)$, $j = 1, \ldots, n$.
+- In each simulation trial, we add the signals simulated as $\theta_j \overset{iid}{\sim} 0.9\delta_0 + 0.1N(0, 4^2)$, $X_j = \theta_j + Z_j$, $j = 1, \ldots, n$
 ```{r}
-theta <- replicate(m, sample(c(rep(0, n * 0.9), rnorm(n * 0.1, 0, 4))))
-```
-
-- Observations $X_j = \theta_j + Z_j$.
-```{r}
+theta <- c(rep(0, 0.9 * n), rnorm(0.1 * n, 0, 4))
 X <- theta + Z
 ```
 
@@ -104,7 +100,7 @@ BH.rej <- apply(p.BH, 2, function(x){x <= q})
 FDP.fun <- function (rej.id, theta) {
   sum(theta[rej.id] == 0) / max(1, length(theta[rej.id]))
 }
-FDP <- sapply(seq(m), function(i){FDP.fun(BH.rej[, i], theta[, i])})
+FDP <- apply(BH.rej, 2, FDP.fun, theta)
 ```
 
 ## Average FDP for each group and overall
