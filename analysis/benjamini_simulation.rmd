@@ -1,5 +1,5 @@
 ---
-title: "BHq (1995) Simulation with Correlation"
+title: "BHq (1995) Simulation on Correlated Data"
 author: "Lei Sun"
 date: 2018-05-11
 output: html_document
