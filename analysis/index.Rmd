@@ -1,9 +1,9 @@
 ---
-title: "Home"
+title: "Re-exploring $\\text{BH}_q$"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
     toc: false
 ---
 
-Welcome to my research website.
+On this website we are re-exploring the good ol' $\text{BH}_q$.

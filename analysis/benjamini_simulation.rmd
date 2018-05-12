@@ -1,0 +1,133 @@
+---
+title: "BHq (1995) Simulation with Correlation"
+author: "Lei Sun"
+date: 2018-05-11
+output: html_document
+---
+
+## Simulate correlated $N(0, 1)$ variables
+
+Suppose $Z = \left[Z_1, Z_2, \ldots, Z_n\right]' \sim N\left(0, \Sigma\right)$, where $\Sigma_{ii} \equiv 1$. In this experiment, $\Sigma$ is simulated in the following way.
+
+- Simulate $B_{n \times d}$ where $B_{ij} \overset{iid}{\sim} N(0, 1)$, $n = 10^4, d = 5$.
+```{r, cache = TRUE}
+set.seed(1995)
+n <- 1e4
+d <- 5
+B <- matrix(rnorm(n * d), n, d)
+```
+
+- Calculate $\Sigma = D^{-1/2}\left(BB^T + I\right)D^{-1/2}$, where $D = \text{diag}\left(BB^T + I\right)$
+```{r, cache = TRUE}
+Sigma <- cov2cor(B %*% t(B) + diag(n))
+## The first 5 rows and columns of Sigma
+Sigma[1 : 5, 1 : 5]
+```
+
+- Fix $\Sigma$ and simulate $Z \sim N\left(0, \Sigma\right)$ $m = 10^3$ times.
+```{r, cache = TRUE}
+m <- 1000
+## An equivalent fast way to simulate Z
+## Z is a n * m matrix
+## Each column of Z is a realization
+normalize.constant <- sqrt(rowSums(B^2) + 1)
+Z <- replicate(m, 
+  (colSums(t(B) * rnorm(d)) + rnorm(n)) / normalize.constant
+)
+```
+
+## Inflation, deflation, and in-between
+
+- Simulated in this way, all elements in one $Z$ are marginally $N\left(0, 1\right)$ (hence they are *null* $z$-scores), and highly correlated.
+
+- In addition, even with exactly the same $\Sigma$, the empirical distribution of each realizations $z = \left[z_1, z_2, \ldots, z_n\right]$ of $Z$ can be inflated, deflated, or in-between, defined in the following way. Let $\text{sd}$ be the sample standard deviation of $z$.
+    - Inflated Noise: $\text{sd}(z) > 1.05$
+    - Deflated Noise: $\text{sd}(z) < 0.95$
+    - In-between: $0.95 \le \text{sd}(z) \le 1.05$
+The cutoffs are thus chosen so as to when $z$ are $n$ iid $N(0, 1)$ samples, it would be highly unlikely to have $\text{sd}(z)$ falling into the inflated or deflated categories.
+
+- Categorize our $m$ realizations of $Z$ into the three groups mentioned above.
+```{r}
+## Categorize m realizations into three groups
+sd.Z <- apply(Z, 2, sd)
+group <- cut(sd.Z, breaks = c(0, 0.95, 1.05, Inf), labels = c("Deflated Noise", "In-between", "Inflated Noise"))
+table(group)
+```
+
+- Examples: the blue line is the density curve of $N(0, 1)$.
+```{r, echo = FALSE, message = FALSE}
+def.exp <- Z[, order(sd.Z, decreasing = F)[10]]
+inb.exp <- Z[, which.min(abs(sd.Z - 1))]
+inf.exp <- Z[, order(sd.Z, decreasing = T)[10]]
+cor.exp <- cbind.data.frame(Z = c(def.exp, inb.exp, inf.exp), Noise = rep(c("Deflated Noise", "In-Between", "Inflated Noise"), each = n))
+library(ggplot2)
+ggplot(data = cor.exp, aes(Z)) + 
+  geom_histogram(aes(y = ..density..)
+                 #, breaks = 100
+                 ) +
+  facet_wrap(~Noise) +
+  stat_function(fun = dnorm, col = "blue")
+```
+
+## Add signals and obtain $p$-values for every simulation trial.
+
+- In each of our simulation trial, the signals are simulated as $\theta_j \overset{iid}{\sim} 0.9\delta_0 + 0.1N(0, 4^2)$, $j = 1, \ldots, n$.
+```{r}
+theta <- replicate(m, sample(c(rep(0, n * 0.9), rnorm(n * 0.1, 0, 4))))
+```
+
+- Observations $X_j = \theta_j + Z_j$.
+```{r}
+X <- theta + Z
+```
+
+- $z$-scores $= X_j / 1 = X_j$, two-sided $p$-values $= 2\Phi\left(-\left|X_j\right|\right)$.
+```{r}
+p <- 2 * pnorm(-abs(X))
+```
+
+## Apply $\text{BH}_q$ and form a rejection set at the nominal FDR $= 0.1$ for each trial.
+
+```{r}
+q <- 0.1
+p.BH <- apply(p, 2, p.adjust, method = "BH")
+BH.rej <- apply(p.BH, 2, function(x){x <= q})
+```
+
+## Calculate FDP for each trial
+
+```{r}
+FDP.fun <- function (rej.id, theta) {
+  sum(theta[rej.id] == 0) / max(1, length(theta[rej.id]))
+}
+FDP <- sapply(seq(m), function(i){FDP.fun(BH.rej[, i], theta[, i])})
+```
+
+## Average FDP for each group and overall
+
+```{r}
+## Boxplot of FDP for each group
+boxplot(FDP ~ group, ylab = "FDP")
+abline(h = q, lty = 2, col = "red")
+points(1 : 3, tapply(FDP, group, mean), col = "blue", pch = 13)
+## Mean of FDP for each group
+tapply(FDP, group, mean)
+## sd of FDP for each group
+tapply(FDP, group, sd)
+## 95% CI of the mean of FDP for each group
+tapply(FDP, group, function(x){t.test(x)$conf.int})
+## 95% CI of the mean of FDP overall
+t.test(FDP)$conf.int
+```
+
+## Observations
+
+- "Inflated Noise" is a particularly hostile group for $\text{BH}_q$, and indeed it's hostile for all multiple testing procedures which ignore the correlation.
+
+- That said, $\text{BH}_q$ are still, maybe surprisingly so to many, quite robust to correlation in two senses.
+    - First, with a given $\Sigma$ containing substantial off-diagonal correlations, $\text{BH}_q$ manages to control FDR on average, over all inflated, deflated, and in-between put together.
+    - Second, even for the particularly hostile "Inflated Noise" group, $\text{BH}_q$ gives an average FDP $=$ `r signif(mean(FDP[group == "Inflated Noise"]), 3)` at a nominal FDR $= 0.1$, which is quite impressive, much better than other methods like `qvalue`.
+
+- The most relevant issue for $\text{BH}_q$ on correlated data is not controlling the mean of FDP, but rather the variability of FDP for different data sets. Like many methods ignoring correlation, $\text{BH}_q$ is too conservative when the noise is deflated, and too anti-conservative when the noise is inflated. However, in practice we would prefer a robust procedure that gives a rejection set with an FDP close to the desired nominal FDR, conditioned on every given data set. This is what we want to achieve with `CASH`.
+
+- The surprising relative robustness of $\text{BH}_q$ might be theoretically explained by the Gaussian derivatives theory on correlation we used in `CASH`, which I'd like to explore further.

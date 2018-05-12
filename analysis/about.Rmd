@@ -5,4 +5,4 @@ output:
     toc: false
 ---
 
-Describe your project.
+Explorations on $\text{BH}_q$.
