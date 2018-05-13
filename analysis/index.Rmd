@@ -7,3 +7,5 @@ output:
 ---
 
 - [Simulation with $\text{BH}_q$](benjamini_simulation.html), prompted by [Yoav Benjamini](http://www.tau.ac.il/~ybenja/)
+
+- [Simulation with $\text{BH}_q$: Other alternatives](benjamini_simulation_2.html)
